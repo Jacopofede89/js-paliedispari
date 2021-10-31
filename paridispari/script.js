@@ -8,28 +8,54 @@
 
 // Dichiariamo chi ha vinto.
 
-const user = document.getElementById("user");
-const pc = document.getElementById("pc");
-const btn = document.getElementById("btn");
+    let oddEven = prompt("Pari o Dispari?");
+    let numUser = parseInt(prompt("Scegli un numero da 1 a 5"));
+    
+    // Utilizzo una funzione generando un numero random da 1 a 5 per il pc.
+    
+    function casuale(){
+       let pc = Math.floor(Math.random() * 5) + 1;
+        return pc;
+    }
+    
+    let random = casuale();
+    
+    // Genero una variabile che somma i 2 elementi.
+    
+    let sum = casuale() + numUser;
+    
+    // Uso la funzione e stabilisco se il numero è pari o dispari.
+    
+    function choose(number) {
+        let num = "";
+        if(number % 2 === 0){
+            num = "pari";
+        }else{
+            num = "dispari";
+        }
+        return num;
+    }
+    
+    var result = choose(sum);
 
+    // Se l'utente ha scelto pari e la somma dei numeri risulta pari, allora all'utente si comunicherà che ha vinto. 
+   // Se l'utente ha scelto dispari e la somma dei numeri risulta dispari, allora all'utente si comunicherà che ha vinto.
+    if(oddEven === "pari") {
+        console.log("Hai vinto!");
+    
+    
+    }else if(oddEven === "dispari"){
+        console.log("Hai perso!");
 
-const userA = Math.floor(Math.random()* 5) +1;
-console.log(userA);
-const pcA = Math.floor(Math.random()* 5) +1;
-console.log(pcA);
+    // Se non sono state inserite le parole corrette (pari o dispari) viene comunicato all'utente. 
 
-
-btn.addEventListener("click",
-
-function(){
-if (userA > pcA){
-    user.innerHTML= "Hai vinto"
-}
-else if (userA < pcA){
-    user.innerHTML= "Hai perso"
-}
-else if (userA == pcA){
-    user.innerHTML= "Hai pareggiato"
-}
-}
-);
+    }else{
+        console.log("Non hai scelto pari o dispari");
+    }
+    
+    
+    // Console log per stabilire se tutto funziona
+    console.log("Hai scelto:", oddEven)
+    console.log("il numero del pc è:", random);
+    console.log("il numero che hai scelto è:", numUser);
+    console.log("la somma è:", result);
